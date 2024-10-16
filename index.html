@@ -5,41 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arshdeep Saran</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="corner-name">Arshdeep Saran</div>
-    
-    <a href="#" class="contact-btn">Contact</a>
-
+    <nav class="top-menu">
+        <a href="#home" class="active">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
     <div class="container">
-        <h1>Arshdeep Saran</h1>
-        
-        <div class="dropdown">
-            <button onclick="toggleDropdown()" class="dropbtn">My projects..</button>
-            <div id="myDropdown" class="dropdown-content">
+        <header class="header">
+            <h2>Hello, I'm</h2>
+            <h1>Arshdeep Saran</h1>
+        </header>
+        <section class="bio">
+            <p>
+                I love crafting stories and experiences through technology. My passion for deep learning and problem-solving drives me to explore various technologies in programming, game development, design, networking, and beyond. I thrive on complex challenges, collaboration, and bringing innovative ideas to life.
+            </p>
+        </section>
+        <div class="projects-wrapper">
+            <button class="projects-btn">My projects</button>
+            <div class="projects-dropdown">
                 <a href="dungeon-adventure.html">Dungeon Adventure</a>
                 <a href="#">Game of Craps</a>
                 <a href="#">GUI App</a>
             </div>
         </div>
     </div>
-
     <script>
-        function toggleDropdown() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
+        document.querySelector('.projects-btn').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.projects-dropdown').classList.toggle('show');
+        });
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('.projects-btn')) {
+                var dropdown = document.querySelector('.projects-dropdown');
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                    document.querySelector('.projects-btn').classList.remove('active');
                 }
             }
-        }
+        });
     </script>
 </body>
 </html>
